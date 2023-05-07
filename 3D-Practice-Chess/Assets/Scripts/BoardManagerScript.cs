@@ -1,0 +1,72 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BoardManagerScript : MonoBehaviour
+{
+    private int selectedX = -1, selectedY = -1;
+
+    public List<GameObject> chessPicees;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        DrawChessBoard();
+        UpdateSelected();
+    }
+
+    //Generates 8x8 chess board grid to simplify code
+    private void DrawChessBoard()
+    {
+        Vector3 boardWidth = Vector3.right * 8;
+        Vector3 boardLength = Vector3.forward * 8;
+
+        //Drawing the Chessboard
+        for (int i = 0; i <= 8; i++)
+        {
+            Vector3 start = Vector3.forward * i;
+            Debug.DrawLine(start, start + boardWidth);
+
+            for(int j =0; j <= 8; j++)
+            {
+                start = Vector3.right * i;
+                Debug.DrawLine(start, start + boardLength);
+            }
+        }
+
+        if(selectedX>=0 && selectedY >= 0)
+        {
+        Debug.DrawLine((Vector3.forward* selectedY) + (Vector3.right * selectedX),
+        (Vector3.forward * (selectedY + 1)) + (Vector3.right * (selectedX + 1)));
+        Debug.DrawLine((Vector3.forward * selectedY) + (Vector3.right * (selectedX + 1)),
+        (Vector3.forward * (selectedY + 1)) + (Vector3.right * selectedX));
+        }
+    }
+
+    private void UpdateSelected()
+    {
+        if (!Camera.main)
+        {
+            return;
+        }
+
+        RaycastHit hit;
+        float raycastDistance = 25f;
+        
+        if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, raycastDistance, LayerMask.GetMask("ChessPlane")))
+        {
+            selectedX = (int)hit.point.x;
+            selectedY = (int)hit.point.y;
+        }
+        else
+        {
+            selectedX = -1;
+            selectedY = -1;
+        }
+    } 
+}
