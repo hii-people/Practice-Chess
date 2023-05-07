@@ -98,4 +98,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentX: 0
   currentY: 0
-  isWhite: 0
+  isWhite: 1

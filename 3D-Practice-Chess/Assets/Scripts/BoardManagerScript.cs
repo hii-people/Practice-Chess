@@ -7,6 +7,10 @@ public class BoardManagerScript : MonoBehaviour
     private int selectedX = -1, selectedY = -1;
 
     public List<GameObject> chessPicees;
+
+    private const float TILE_SIZE = 1.0f;
+    private const float TILE_OFFSET = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,5 +72,15 @@ public class BoardManagerScript : MonoBehaviour
             selectedX = -1;
             selectedY = -1;
         }
-    } 
+    }
+
+    private Vector3 GetTileCentre(int x,int y)
+    {
+        Vector3 origin = Vector3.zero;
+
+        origin.x = (TILE_SIZE * x) + TILE_OFFSET;
+        origin.y = (TILE_SIZE * y) + TILE_OFFSET;
+
+        return origin;
+    }
 }
