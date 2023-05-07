@@ -28,15 +28,6 @@ public class BoardManagerScript : MonoBehaviour
         UpdateSelected();
     }
 
-    private void SpawnChessPiece(int index, int x, int y)
-    {
-        GameObject go = Instantiate(chessPicees[index], GetTileCentre(x, y), chessPicees[index].transform.rotation) as GameObject;
-        go.transform.SetParent(transform);
-        ChessPiecePosition[x, y] = go.GetComponent<ChessPieces>();
-        ChessPiecePosition[x, y].SetPostion(x, y);
-        activePieces.Add(go);
-    }
-
 
     //Generates 8x8 chess board grid to simplify code
     private void DrawChessBoard()
@@ -88,6 +79,15 @@ public class BoardManagerScript : MonoBehaviour
         }
     }
 
+    private void SpawnChessPiece(int index, int x, int y)
+    {
+        GameObject go = Instantiate(chessPicees[index], GetTileCentre(x, y), chessPicees[index].transform.rotation) as GameObject;
+        go.transform.SetParent(transform);
+        ChessPiecePosition[x, y] = go.GetComponent<ChessPieces>();
+        ChessPiecePosition[x, y].SetPostion(x, y);
+        activePieces.Add(go);
+    }
+
     private Vector3 GetTileCentre(int x,int y)
     {
         Vector3 origin = Vector3.zero;
@@ -96,5 +96,46 @@ public class BoardManagerScript : MonoBehaviour
         origin.y = (TILE_SIZE * y) + TILE_OFFSET;
 
         return origin;
+    }
+
+    private void SpawnAllChessPieces()
+    {
+        // White
+        SpawnChessPiece(0, 4, 0); // King
+        SpawnChessPiece(1, 3, 0); // Queen
+        SpawnChessPiece(2, 0, 0); // Rook
+        SpawnChessPiece(2, 7, 0); // Rook
+        SpawnChessPiece(3, 2, 0); // Bishop
+        SpawnChessPiece(3, 5, 0); // Bishop
+        SpawnChessPiece(4, 1, 0); // Knight
+        SpawnChessPiece(4, 6, 0); // Knight
+
+        SpawnChessPiece(5, 0, 1);
+        SpawnChessPiece(5, 1, 1);
+        SpawnChessPiece(5, 2, 1);
+        SpawnChessPiece(5, 3, 1);
+        SpawnChessPiece(5, 4, 1);
+        SpawnChessPiece(5, 5, 1);
+        SpawnChessPiece(5, 6, 1);
+        SpawnChessPiece(5, 7, 1);
+
+        // Black
+        SpawnChessPiece(6, 4, 7); // King
+        SpawnChessPiece(7, 3, 7); // Queen
+        SpawnChessPiece(8, 0, 7); // Rook
+        SpawnChessPiece(8, 7, 7); // Rook
+        SpawnChessPiece(9, 2, 7); // Bishop
+        SpawnChessPiece(9, 5, 7); // Bishop
+        SpawnChessPiece(10, 1, 7); // Knight
+        SpawnChessPiece(10, 6, 7); // Knight
+
+        SpawnChessPiece(11, 0, 6);
+        SpawnChessPiece(11, 1, 6);
+        SpawnChessPiece(11, 2, 6);
+        SpawnChessPiece(11, 3, 6);
+        SpawnChessPiece(11, 4, 6);
+        SpawnChessPiece(11, 5, 6);
+        SpawnChessPiece(11, 6, 6);
+        SpawnChessPiece(11, 7, 6);
     }
 }
