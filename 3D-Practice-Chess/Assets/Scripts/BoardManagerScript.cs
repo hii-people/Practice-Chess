@@ -6,10 +6,14 @@ public class BoardManagerScript : MonoBehaviour
 {
     private int selectedX = -1, selectedY = -1;
 
-    public List<GameObject> chessPicees;
-
     private const float TILE_SIZE = 1.0f;
     private const float TILE_OFFSET = 0.5f;
+
+    public ChessPieces[,] ChessPiecePosition;
+    private ChessPieces selectedPiece;
+
+    public List<GameObject> chessPicees;
+    public List<GameObject> activePieces = new();
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,16 @@ public class BoardManagerScript : MonoBehaviour
         DrawChessBoard();
         UpdateSelected();
     }
+
+    private void SpawnChessPiece(int index, int x, int y)
+    {
+        GameObject go = Instantiate(chessPicees[index], GetTileCentre(x, y), chessPicees[index].transform.rotation) as GameObject;
+        go.transform.SetParent(transform);
+        ChessPiecePosition[x, y] = go.GetComponent<ChessPieces>();
+        ChessPiecePosition[x, y].SetPostion(x, y);
+        activePieces.Add(go);
+    }
+
 
     //Generates 8x8 chess board grid to simplify code
     private void DrawChessBoard()

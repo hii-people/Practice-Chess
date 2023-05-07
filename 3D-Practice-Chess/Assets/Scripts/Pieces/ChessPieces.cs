@@ -4,14 +4,14 @@ using UnityEngine;
 
 public abstract class ChessPieces : MonoBehaviour
 {
-    public int currentX;
-    public int currentY;
+    public int CurrentX { get; set; }
+    public int CurrentY { get; set; }
     public bool isWhite;
 
     public void SetPostion(int x,int y)
     {
-        currentX = x;
-        currentY = y;
+        CurrentX = x; 
+        CurrentY = y;
     }
 
     public virtual bool[,] PossibleMove()
