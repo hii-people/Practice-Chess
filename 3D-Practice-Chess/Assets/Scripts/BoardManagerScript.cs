@@ -17,8 +17,10 @@ public class BoardManagerScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         ChessPiecePosition = new ChessPieces[8, 8];
+
+        SpawnAllChessPieces();
     }
 
     // Update is called once per frame
@@ -98,6 +100,8 @@ public class BoardManagerScript : MonoBehaviour
         return origin;
     }
 
+
+    //TODO fix this. It does not spawn the pieces correctlty
     private void SpawnAllChessPieces()
     {
         // White
