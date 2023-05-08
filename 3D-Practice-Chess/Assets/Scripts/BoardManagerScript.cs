@@ -203,7 +203,7 @@ public class BoardManagerScript : MonoBehaviour
 
         selectedPiece = ChessPiecePosition[x, y];
 
-        
+        //TODO Implement Board Highlighting
         //BoardHighlighting.Instance.HighlightAllowedMoves(allowedMoves);
 
     }
@@ -221,7 +221,7 @@ public class BoardManagerScript : MonoBehaviour
 
                 if(c.GetType() == typeof(KingScript))
                 {
-                    
+                    //TODO Implement EndGamne()
 
                     //EndGame();
                     return;
