@@ -8,8 +8,8 @@ public class BoardManagerScript : MonoBehaviour
 
     private const float TILE_SIZE = 1.0f;
     //private const float TILE_SIZE = 0f;
-    //private const float TILE_OFFSET = 0.5f;
-    private const float TILE_OFFSET = 0f;
+    private const float TILE_OFFSET = 0.5f;
+    //private const float TILE_OFFSET = 0f;
 
 
     public ChessPieces[,] ChessPiecePosition;
@@ -98,7 +98,7 @@ public class BoardManagerScript : MonoBehaviour
         Vector3 origin = Vector3.zero;
 
         origin.x = (TILE_SIZE * x) + TILE_OFFSET;
-        origin.y = (TILE_SIZE * y) + TILE_OFFSET;
+        origin.z = (TILE_SIZE * y) + TILE_OFFSET;
 
         return origin;
     }
