@@ -104,7 +104,7 @@ public class BoardManagerScript : MonoBehaviour
     //TODO fix this. It does not spawn the pieces correctlty
     private void SpawnAllChessPieces()
     {
-        // White
+        // White Chess Pieces
         SpawnChessPiece(0, 4, 0); // King
         SpawnChessPiece(1, 3, 0); // Queen
         SpawnChessPiece(2, 0, 0); // Rook
@@ -123,7 +123,7 @@ public class BoardManagerScript : MonoBehaviour
         SpawnChessPiece(5, 6, 1);
         SpawnChessPiece(5, 7, 1);
 
-        // Black
+        // Black Chess Pieces
         SpawnChessPiece(6, 4, 7); // King
         SpawnChessPiece(7, 3, 7); // Queen
         SpawnChessPiece(8, 0, 7); // Rook
