@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BoardManagerScript : MonoBehaviour
 {
+    public static BoardManagerScript Instance { get; set; }
     private bool[,] AllowedMoves { get; set; }
 
     private int selectedX = -1, selectedY = -1;
@@ -38,8 +39,11 @@ public class BoardManagerScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if(selectedX>=0 && selectedY >= 0)
+            print("Mouse has been clicked");
+
+            if(selectedX >= 0 && selectedY >= 0)
             {
+                //print("Got to this point");
                 if(selectedPiece == null)
                 {
                     SelectChessPiece(selectedX, selectedY);
@@ -86,13 +90,14 @@ public class BoardManagerScript : MonoBehaviour
     {
         if (!Camera.main)
         {
+            print("Got to this point");
             return;
         }
-
+        print("Got to this point");
         RaycastHit hit;
         float raycastDistance = 25f;
-        
-        if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, raycastDistance, LayerMask.GetMask("ChessPlane")))
+
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, raycastDistance, LayerMask.GetMask("ChessPlane")))
         {
             selectedX = (int)hit.point.x;
             selectedY = (int)hit.point.y;
@@ -237,5 +242,17 @@ public class BoardManagerScript : MonoBehaviour
 
         //BoardHighlighting.Instance.HideHighlights();
         selectedPiece = null;
+    }
+
+    private void EndGame()
+    {
+        if (isWhitesTurn)
+        {
+            print("White wins");
+        }
+        else
+        {
+            print("Black wins");
+        }
     }
 }
