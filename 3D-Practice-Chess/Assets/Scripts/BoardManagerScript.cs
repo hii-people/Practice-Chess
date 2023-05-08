@@ -86,7 +86,7 @@ public class BoardManagerScript : MonoBehaviour
 
     private void SpawnChessPiece(int index, int x, int y)
     {
-        GameObject go = Instantiate(chessPicees[index], GetTileCentre(x, y), chessPicees[index].transform.rotation) as GameObject;
+        GameObject go = Instantiate(chessPicees[index], GetTileCentre(x, y), chessPicees[index].transform.rotation);
         go.transform.SetParent(transform);
         ChessPiecePosition[x, y] = go.GetComponent<ChessPieces>();
         ChessPiecePosition[x, y].SetPostion(x, y);
@@ -103,8 +103,6 @@ public class BoardManagerScript : MonoBehaviour
         return origin;
     }
 
-
-    //TODO fix this. It does not spawn the pieces correctlty
     private void SpawnAllChessPieces()
     {
         // White Chess Pieces
