@@ -203,10 +203,30 @@ public class BoardManagerScript : MonoBehaviour
 
         selectedPiece = ChessPiecePosition[x, y];
 
+        
+        //BoardHighlighting.Instance.HighlightAllowedMoves(allowedMoves);
+
     }
 
     private void MoveChessPiece(int x, int y)
     {
+        if (AllowedMoves[x, y])
+        {
+            ChessPieces c = ChessPiecePosition[x, y];
 
+            if(c != null && c.isWhite != isWhitesTurn)
+            {
+                activePieces.Remove(c.gameObject);
+                Destroy(c.gameObject);
+
+                if(c.GetType() == typeof(KingScript))
+                {
+                    
+
+                    //EndGame();
+                    return;
+                }
+            }
+        }
     }
 }
