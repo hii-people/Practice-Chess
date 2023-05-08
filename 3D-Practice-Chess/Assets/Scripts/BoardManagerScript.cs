@@ -42,6 +42,10 @@ public class BoardManagerScript : MonoBehaviour
                 {
                     SelectChessPiece(selectedX, selectedY);
                 }
+                else
+                {
+                    MoveChessPiece(selectedX, selectedY);
+                }
             }
         }
     }
@@ -163,7 +167,7 @@ public class BoardManagerScript : MonoBehaviour
 
     }
 
-    private void MoveChessPiece()
+    private void MoveChessPiece(int x, int y)
     {
 
     }
