@@ -99,7 +99,7 @@ public class BoardManagerScript : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, raycastDistance, LayerMask.GetMask("ChessPlane")))
         {
-            //print("Got to this point");
+            print("Got to this point, thank fuck");
             selectedX = (int)hit.point.x;
             selectedY = (int)hit.point.y;
         }
