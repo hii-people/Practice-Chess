@@ -96,7 +96,7 @@ public class BoardManagerScript : MonoBehaviour
         
         RaycastHit hit;
         float raycastDistance = 25f;
-
+        //TODO Issue after mouse click not being registerd is here. Something here is not right.
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, raycastDistance, LayerMask.GetMask("ChessPlane")))
         {
             print("Got to this point, thank fuck");
