@@ -6,8 +6,11 @@ public class BoardManagerScript : MonoBehaviour
 {
     private int selectedX = -1, selectedY = -1;
 
-    private const float TILE_SIZE = 1.0f;
+    //private const float TILE_SIZE = 1.0f;
+    private const float TILE_SIZE = 0f;
     private const float TILE_OFFSET = 0.5f;
+    //private const float TILE_OFFSET = 0f;
+
 
     public ChessPieces[,] ChessPiecePosition;
     private ChessPieces selectedPiece;
@@ -90,7 +93,7 @@ public class BoardManagerScript : MonoBehaviour
         activePieces.Add(go);
     }
 
-    private Vector3 GetTileCentre(int x,int y)
+    private Vector3 GetTileCentre(int x, int y)
     {
         Vector3 origin = Vector3.zero;
 
