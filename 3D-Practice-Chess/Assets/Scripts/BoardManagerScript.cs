@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BoardManagerScript : MonoBehaviour
 {
+    private bool[,] AllowedMoves { get; set; }
+
     private int selectedX = -1, selectedY = -1;
 
     public bool isWhitesTurn = true;
@@ -14,7 +16,7 @@ public class BoardManagerScript : MonoBehaviour
     //private const float TILE_OFFSET = 0f;
 
 
-    public ChessPieces[,] ChessPiecePosition;
+    public ChessPieces[,] ChessPiecePosition { get; set; }
     private ChessPieces selectedPiece;
 
     public List<GameObject> chessPicees;
@@ -164,6 +166,42 @@ public class BoardManagerScript : MonoBehaviour
 
     private void SelectChessPiece(int x, int y)
     {
+        if (ChessPiecePosition[x,y] == null)
+        {
+            return;
+        }
+
+        if (ChessPiecePosition[x,y].isWhite != isWhitesTurn)
+        {
+            return;
+        }
+
+        bool hasAtLeastOneMove = false;
+       AllowedMoves = ChessPiecePosition[x, y].PossibleMove();
+
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                if (AllowedMoves[i, j])
+                {
+                    hasAtLeastOneMove = true;
+
+                    //Breaks out of first loop
+                    i = 8;
+
+                    //Breaks out of second loop
+                    break;
+                }
+            }
+        }
+
+        if (!hasAtLeastOneMove)
+        {
+            return;
+        }
+
+        selectedPiece = ChessPiecePosition[x, y];
 
     }
 
