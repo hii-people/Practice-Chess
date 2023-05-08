@@ -115,7 +115,7 @@ public class BoardManagerScript : MonoBehaviour
         SpawnChessPiece(4, 1, 0); // Knight
         SpawnChessPiece(4, 6, 0); // Knight
 
-        SpawnChessPiece(5, 0, 1);
+        SpawnChessPiece(5, 0, 1); //Pawns
         SpawnChessPiece(5, 1, 1);
         SpawnChessPiece(5, 2, 1);
         SpawnChessPiece(5, 3, 1);
@@ -134,7 +134,7 @@ public class BoardManagerScript : MonoBehaviour
         SpawnChessPiece(10, 1, 7); // Knight
         SpawnChessPiece(10, 6, 7); // Knight
 
-        SpawnChessPiece(11, 0, 6);
+        SpawnChessPiece(11, 0, 6); //Pawns
         SpawnChessPiece(11, 1, 6);
         SpawnChessPiece(11, 2, 6);
         SpawnChessPiece(11, 3, 6);
