@@ -6,10 +6,10 @@ public class BoardManagerScript : MonoBehaviour
 {
     private int selectedX = -1, selectedY = -1;
 
-    //private const float TILE_SIZE = 1.0f;
-    private const float TILE_SIZE = 0f;
-    private const float TILE_OFFSET = 0.5f;
-    //private const float TILE_OFFSET = 0f;
+    private const float TILE_SIZE = 1.0f;
+    //private const float TILE_SIZE = 0f;
+    //private const float TILE_OFFSET = 0.5f;
+    private const float TILE_OFFSET = 0f;
 
 
     public ChessPieces[,] ChessPiecePosition;
