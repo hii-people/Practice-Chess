@@ -6,6 +6,8 @@ public class BoardManagerScript : MonoBehaviour
 {
     private int selectedX = -1, selectedY = -1;
 
+    public bool isWhitesTurn = true;
+
     private const float TILE_SIZE = 1.0f;
     //private const float TILE_SIZE = 0f;
     private const float TILE_OFFSET = 0.5f;
@@ -31,10 +33,16 @@ public class BoardManagerScript : MonoBehaviour
     {
         DrawChessBoard();
         UpdateSelected();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+        }
     }
 
 
     //Generates 8x8 chess board grid to simplify code
+    //Allows me to line up actual board with where chess pieces will be spawned
     private void DrawChessBoard()
     {
         Vector3 boardWidth = Vector3.right * 8;
@@ -53,12 +61,12 @@ public class BoardManagerScript : MonoBehaviour
             }
         }
 
-        if(selectedX>=0 && selectedY >= 0)
+        if (selectedX >= 0 && selectedY >= 0)
         {
-        Debug.DrawLine((Vector3.forward* selectedY) + (Vector3.right * selectedX),
-        (Vector3.forward * (selectedY + 1)) + (Vector3.right * (selectedX + 1)));
-        Debug.DrawLine((Vector3.forward * selectedY) + (Vector3.right * (selectedX + 1)),
-        (Vector3.forward * (selectedY + 1)) + (Vector3.right * selectedX));
+            Debug.DrawLine(Vector3.forward * selectedY + Vector3.right * selectedX,
+                (Vector3.forward * (selectedY + 1)) + (Vector3.right * (selectedX + 1)));
+            Debug.DrawLine(Vector3.forward * selectedY + Vector3.right * (selectedX + 1),
+               (Vector3.forward * (selectedY + 1)) + (Vector3.right * selectedX));
         }
     }
 
@@ -142,5 +150,15 @@ public class BoardManagerScript : MonoBehaviour
         SpawnChessPiece(11, 5, 6);
         SpawnChessPiece(11, 6, 6);
         SpawnChessPiece(11, 7, 6);
+    }
+
+    private void SelectChessPiece()
+    {
+
+    }
+
+    private void MoveChessPiece()
+    {
+
     }
 }
