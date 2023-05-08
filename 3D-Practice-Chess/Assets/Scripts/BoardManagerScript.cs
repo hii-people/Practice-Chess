@@ -227,6 +227,15 @@ public class BoardManagerScript : MonoBehaviour
                     return;
                 }
             }
+
+            ChessPiecePosition[selectedPiece.CurrentX, selectedPiece.CurrentY] = null;
+            selectedPiece.transform.position = GetTileCentre(x, y);
+            ChessPiecePosition[x, y] = selectedPiece;
+            isWhitesTurn = !isWhitesTurn;
+
         }
+
+        //BoardHighlighting.Instance.HideHighlights();
+        selectedPiece = null;
     }
 }
