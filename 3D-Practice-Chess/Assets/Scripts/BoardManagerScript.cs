@@ -90,20 +90,22 @@ public class BoardManagerScript : MonoBehaviour
     {
         if (!Camera.main)
         {
-            print("Got to this point");
+            
             return;
         }
-        print("Got to this point");
+        
         RaycastHit hit;
         float raycastDistance = 25f;
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, raycastDistance, LayerMask.GetMask("ChessPlane")))
         {
+            //print("Got to this point");
             selectedX = (int)hit.point.x;
             selectedY = (int)hit.point.y;
         }
         else
         {
+            print("Got to this point");
             selectedX = -1;
             selectedY = -1;
         }
