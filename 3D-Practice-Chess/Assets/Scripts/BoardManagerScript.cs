@@ -36,7 +36,13 @@ public class BoardManagerScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-
+            if(selectedX>=0 && selectedY >= 0)
+            {
+                if(selectedPiece == null)
+                {
+                    SelectChessPiece(selectedX, selectedY);
+                }
+            }
         }
     }
 
@@ -152,7 +158,7 @@ public class BoardManagerScript : MonoBehaviour
         SpawnChessPiece(11, 7, 6);
     }
 
-    private void SelectChessPiece()
+    private void SelectChessPiece(int x, int y)
     {
 
     }
