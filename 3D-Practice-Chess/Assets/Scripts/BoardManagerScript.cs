@@ -227,9 +227,7 @@ public class BoardManagerScript : MonoBehaviour
 
                 if(c.GetType() == typeof(KingScript))
                 {
-                    //TODO Implement EndGamne()
-
-                    //EndGame();
+                    EndGame();
                     return;
                 }
             }
