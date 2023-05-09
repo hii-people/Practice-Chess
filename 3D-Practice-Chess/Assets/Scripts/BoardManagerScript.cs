@@ -27,7 +27,6 @@ public class BoardManagerScript : MonoBehaviour
     void Start()
     { 
         ChessPiecePosition = new ChessPieces[8, 8];
-
         SpawnAllChessPieces();
     }
 
@@ -97,11 +96,12 @@ public class BoardManagerScript : MonoBehaviour
         RaycastHit hit;
         float raycastDistance = 25f;
         //FIXME Issue after mouse click not being registerd is here. Something here is not right.
+
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, raycastDistance, LayerMask.GetMask("ChessPlane")))
         {
             print("Got to this point, thank fuck");
             selectedX = (int)hit.point.x;
-            selectedY = (int)hit.point.y;
+            selectedY = (int)hit.point.z;
         }
         else
         {
@@ -195,7 +195,7 @@ public class BoardManagerScript : MonoBehaviour
                     hasAtLeastOneMove = true;
 
                     //Breaks out of first loop
-                    i = 8;
+                    i = 7;
 
                     //Breaks out of second loop
                     break;
