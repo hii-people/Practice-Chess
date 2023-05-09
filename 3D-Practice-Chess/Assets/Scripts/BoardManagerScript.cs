@@ -210,8 +210,7 @@ public class BoardManagerScript : MonoBehaviour
 
         selectedPiece = ChessPiecePosition[x, y];
 
-        //TODO Implement Board Highlighting
-        //BoardHighlighting.Instance.HighlightAllowedMoves(allowedMoves);
+        BoardHighlightingScript.Instance.HighlightAllowedMoves(AllowedMoves);
 
     }
 
@@ -242,7 +241,7 @@ public class BoardManagerScript : MonoBehaviour
 
         }
 
-        //BoardHighlighting.Instance.HideHighlights();
+        BoardHighlightingScript.Instance.HideHighlights();
         selectedPiece = null;
     }
 
